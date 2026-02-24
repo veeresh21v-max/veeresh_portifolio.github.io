@@ -3,94 +3,114 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Veeresh Kambhalamatam | AI/ML Portfolio</title>
-  <meta name="description" content="Veeresh Kambhalamatam — AI/ML-focused MCA graduate. Python, Django, ML, NLP, Data Analytics." />
+  <title>Veeresh Kambhalamatam | Data Analyst & Python Developer</title>
+  <meta name="description" content="Veeresh Kambhalamatam — Data Analyst skilled in Python, SQL, Power BI, Excel, EDA, and ML. MCA graduate seeking data-driven roles." />
 
-  <!-- Fonts + Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
-
-  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <div class="noise"></div>
+  <div class="cursor" id="cursor"></div>
+
   <!-- Navbar -->
-  <header class="nav">
+  <header class="nav" id="navbar">
     <div class="container nav__inner">
-      <a class="brand" href="#home">Veeresh<span>.</span></a>
-
+      <a class="brand" href="#home">VK<span class="brand-dot">.</span></a>
       <button class="nav__toggle" id="navToggle" aria-label="Open menu">
-        <i class="fa-solid fa-bars"></i>
+        <span></span><span></span><span></span>
       </button>
-
       <nav class="nav__links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#certs">Certifications</a>
-        <a class="btn btn--sm" href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Let's Talk</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
   <main id="home" class="hero">
+    <div class="hero__bg-grid"></div>
     <div class="container hero__grid">
       <div class="hero__copy">
-        <p class="pill"><i class="fa-solid fa-sparkles"></i> Open to AI/ML roles</p>
-        <h1>
-          Veeresh <span class="accent">Kambhalamatam</span>
+        <div class="hero__badge">
+          <span class="badge-dot"></span>
+          <span>Open to Data Analyst &amp; Python roles</span>
+        </div>
+        <h1 class="hero__name">
+          <span class="line1">Veeresh</span>
+          <span class="line2">Kambhala<span class="accent-text">matam</span></span>
         </h1>
-        <p class="subtitle">
-          <span class="muted">I build</span>
-          <span id="typed"></span>
+        <div class="hero__role">
+          <span class="role-label">{ </span><span id="typed"></span><span class="role-label"> }</span>
+        </div>
+        <p class="hero__lead">
+          MCA graduate who turns raw data into clear decisions — through Python, SQL, dashboards, and a touch of machine learning.
         </p>
-        <p class="lead">
-          AI/ML-focused MCA graduate with strong foundations in Python, data processing, EDA, and end-to-end ML solutions using Django.
-        </p>
-
         <div class="hero__cta">
-          <a class="btn" href="#projects">View Work</a>
-          <a class="btn btn--ghost" href="#contact">Hire / Connect</a>
+          <a class="btn btn--primary" href="#projects">
+            <i class="fa-solid fa-chart-column"></i> View Projects
+          </a>
+          <a class="btn btn--outline" href="#contact">
+            <i class="fa-solid fa-paper-plane"></i> Hire Me
+          </a>
         </div>
-
-        <div class="hero__meta">
-          <a class="meta" href="mailto:veeresh21.v@gmail.com"><i class="fa-solid fa-envelope"></i> veeresh21.v@gmail.com</a>
-          <span class="meta"><i class="fa-solid fa-phone"></i> +91-9030859468</span>
+        <div class="hero__contacts">
+          <a class="contact-pill" href="mailto:veeresh21.v@gmail.com">
+            <i class="fa-solid fa-envelope"></i> veeresh21.v@gmail.com
+          </a>
+          <a class="contact-pill" href="tel:+919030859468">
+            <i class="fa-solid fa-phone"></i> +91-9030859468
+          </a>
         </div>
-
-        <div class="hero__social">
-          <a href="https://www.linkedin.com/in/veeresh-kambhalamatam" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#" target="_blank" rel="noreferrer" title="Add your GitHub link"><i class="fa-brands fa-github"></i></a>
+        <div class="hero__socials">
+          <a href="https://www.linkedin.com/in/veeresh-kambhalamatam" target="_blank" rel="noreferrer" class="social-icon" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer" class="social-icon" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:veeresh21.v@gmail.com" class="social-icon" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
         </div>
       </div>
 
-      <!-- Right side highlight card (no images) -->
-      <aside class="hero__card">
-        <h3>What you get</h3>
-        <ul class="checklist">
-          <li><i class="fa-solid fa-circle-check"></i> Premium look, no screenshots needed</li>
-          <li><i class="fa-solid fa-circle-check"></i> Fast, responsive, GitHub Pages-ready</li>
-          <li><i class="fa-solid fa-circle-check"></i> Resume-driven content structure</li>
-        </ul>
-        <div class="stats">
-          <div class="stat">
-            <div class="stat__num">2+</div>
-            <div class="stat__label">ML Projects</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num">1</div>
-            <div class="stat__label">Internship</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num">5+</div>
-            <div class="stat__label">Certifications</div>
-          </div>
+      <aside class="hero__panel">
+        <div class="panel__header">
+          <div class="panel__dots"><span></span><span></span><span></span></div>
+          <span class="panel__tag">quick_stats.py</span>
+        </div>
+        <div class="panel__code">
+          <div class="code-line"><span class="kw">profile</span> = {</div>
+          <div class="code-line indent"><span class="str">"name"</span>: <span class="val">"Veeresh K."</span>,</div>
+          <div class="code-line indent"><span class="str">"role"</span>: <span class="val">"Data Analyst"</span>,</div>
+          <div class="code-line indent"><span class="str">"degree"</span>: <span class="val">"MCA 2025"</span>,</div>
+          <div class="code-line indent"><span class="str">"stack"</span>: [<span class="val">"Python"</span>, <span class="val">"SQL"</span>, <span class="val">"Power BI"</span>],</div>
+          <div class="code-line indent"><span class="str">"certifications"</span>: <span class="num">6</span>,</div>
+          <div class="code-line indent"><span class="str">"projects"</span>: <span class="num">3</span>,</div>
+          <div class="code-line indent"><span class="str">"internship"</span>: <span class="val">True</span>,</div>
+          <div class="code-line indent"><span class="str">"status"</span>: <span class="val">"available"</span> <span class="cmt"># ✓</span></div>
+          <div class="code-line">}</div>
+        </div>
+        <div class="panel__stats">
+          <div class="pstat"><div class="pstat__n">3+</div><div class="pstat__l">Projects</div></div>
+          <div class="pstat"><div class="pstat__n">6+</div><div class="pstat__l">Certificates</div></div>
+          <div class="pstat"><div class="pstat__n">1</div><div class="pstat__l">Internship</div></div>
         </div>
       </aside>
+    </div>
+
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </main>
 
@@ -98,142 +118,262 @@
   <section id="about" class="section">
     <div class="container">
       <div class="section__head">
-        <h2>About</h2>
-        <p class="muted">A quick intro based on your resume.</p>
+        <div class="section__label">01 / about</div>
+        <h2 class="section__title">Who I Am</h2>
       </div>
-
-      <div class="grid2">
-        <div class="card">
-          <h3>Professional summary</h3>
+      <div class="about__grid">
+        <div class="about__text">
           <p>
-            AI/ML-focused MCA graduate with experience in Python, SQL, EDA, and building end-to-end ML solutions
-            including recommendation systems and automation tools.
+            I'm an <strong>MCA graduate</strong> from Aurora PG College, Hyderabad, with a background spanning Maths, Physics, and AI &amp; Robotics. I specialize in <strong>extracting meaning from data</strong> — cleaning messy datasets in Python, writing analytical SQL queries, building interactive Power BI dashboards, and applying ML models to reveal hidden patterns.
           </p>
+          <p>
+            My approach is focused: understand the business question, find the right data, clean it rigorously, analyse it thoroughly, and present findings that drive real decisions. I complement this with ML knowledge — knowing when a predictive model adds value and how to build one.
+          </p>
+          <div class="about__tags">
+            <span class="atag">Problem Solver</span>
+            <span class="atag">Data Storyteller</span>
+            <span class="atag">Fast Learner</span>
+            <span class="atag">Detail-Oriented</span>
+          </div>
         </div>
-        <div class="card">
+        <div class="about__edu">
           <h3>Education</h3>
-          <ul class="timeline">
-            <li>
-              <div class="t__title">MCA — Aurora PG College, Hyderabad</div>
-              <div class="t__meta">2023–2025</div>
-            </li>
-            <li>
-              <div class="t__title">B.Sc — Maths, Physics, AI & Robotics (Aditya Degree College, Kakinada)</div>
-              <div class="t__meta">2020–2023</div>
-            </li>
-          </ul>
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div>
+              <div class="edu-title">MCA — Master of Computer Applications</div>
+              <div class="edu-place">Aurora PG College, Hyderabad</div>
+              <div class="edu-year">2023 – 2025</div>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fa-solid fa-flask"></i></div>
+            <div>
+              <div class="edu-title">B.Sc — Maths, Physics, AI &amp; Robotics</div>
+              <div class="edu-place">Aditya Degree College, Kakinada</div>
+              <div class="edu-year">2020 – 2023</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="section section--alt">
+  <section id="skills" class="section section--dark">
     <div class="container">
       <div class="section__head">
-        <h2>Skills</h2>
-        <p class="muted">Core stack and tools.</p>
+        <div class="section__label">02 / skills</div>
+        <h2 class="section__title">Tech Stack</h2>
       </div>
+      <div class="skills__grid">
 
-      <div class="chips">
-        <span class="chip">Python</span>
-        <span class="chip">SQL</span>
-        <span class="chip">Django</span>
-        <span class="chip">MySQL</span>
-        <span class="chip">PostgreSQL</span>
-        <span class="chip">Pandas</span>
-        <span class="chip">NumPy</span>
-        <span class="chip">EDA</span>
-        <span class="chip">Feature Engineering</span>
-        <span class="chip">KNN</span>
-        <span class="chip">Regression</span>
-        <span class="chip">Decision Trees</span>
-        <span class="chip">Random Forest</span>
-        <span class="chip">Clustering</span>
-        <span class="chip">NLP</span>
-        <span class="chip">Looker Studio</span>
-        <span class="chip">Tableau</span>
+        <div class="skill-group">
+          <div class="skill-group__icon"><i class="fa-brands fa-python"></i></div>
+          <h3 class="skill-group__title">Python &amp; Data</h3>
+          <div class="skill-chips">
+            <span class="schip schip--hi">Python</span>
+            <span class="schip schip--hi">Pandas</span>
+            <span class="schip schip--hi">NumPy</span>
+            <span class="schip">EDA</span>
+            <span class="schip">Feature Engineering</span>
+            <span class="schip">Data Cleaning</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__icon"><i class="fa-solid fa-database"></i></div>
+          <h3 class="skill-group__title">Databases &amp; SQL</h3>
+          <div class="skill-chips">
+            <span class="schip schip--hi">SQL</span>
+            <span class="schip schip--hi">MySQL</span>
+            <span class="schip">PostgreSQL</span>
+            <span class="schip">Data Extraction</span>
+            <span class="schip">DBMS</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__icon"><i class="fa-solid fa-chart-pie"></i></div>
+          <h3 class="skill-group__title">BI &amp; Visualization</h3>
+          <div class="skill-chips">
+            <span class="schip schip--hi">Power BI</span>
+            <span class="schip schip--hi">Advanced MS Excel</span>
+            <span class="schip">Looker Studio</span>
+            <span class="schip">KPI Dashboards</span>
+            <span class="schip">Data Storytelling</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__icon"><i class="fa-solid fa-brain"></i></div>
+          <h3 class="skill-group__title">Machine Learning</h3>
+          <div class="skill-chips">
+            <span class="schip">Scikit-learn</span>
+            <span class="schip">KNN</span>
+            <span class="schip">Regression</span>
+            <span class="schip">Decision Trees</span>
+            <span class="schip">Random Forest</span>
+            <span class="schip">Clustering</span>
+            <span class="schip">NLP</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__icon"><i class="fa-solid fa-code"></i></div>
+          <h3 class="skill-group__title">Dev &amp; Other</h3>
+          <div class="skill-chips">
+            <span class="schip">Django</span>
+            <span class="schip">HTML &amp; CSS</span>
+            <span class="schip">JavaScript (Basic)</span>
+            <span class="schip">OOPs</span>
+            <span class="schip">Git &amp; GitHub</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Projects (no screenshots) -->
+  <!-- Projects -->
   <section id="projects" class="section">
     <div class="container">
       <div class="section__head">
-        <h2>Projects</h2>
-        <p class="muted">Strong descriptions > screenshots.</p>
+        <div class="section__label">03 / projects</div>
+        <h2 class="section__title">Work I've Built</h2>
       </div>
 
-      <div class="grid3">
-        <article class="card card--hover">
-          <div class="card__top">
-            <span class="tag">Django</span>
-            <span class="tag">ML</span>
+      <div class="projects__list">
+
+        <article class="project-card project-card--featured">
+          <div class="project-card__left">
+            <div class="project-num">01</div>
+            <div class="project-tags">
+              <span class="ptag ptag--py">Python</span>
+              <span class="ptag ptag--ml">ML</span>
+              <span class="ptag">Pandas</span>
+              <span class="ptag">Scikit-learn</span>
+              <span class="ptag">EDA</span>
+            </div>
+            <h3 class="project-title">Customer Churn Prediction</h3>
+            <p class="project-desc">
+              End-to-end ML pipeline to identify customers at risk of churning. Performed thorough EDA with Pandas and NumPy to uncover churn drivers, engineered features, and trained classification models using Scikit-learn — delivering actionable insights for customer retention strategy.
+            </p>
+            <div class="project-highlights">
+              <div class="ph"><i class="fa-solid fa-magnifying-glass-chart"></i> EDA &amp; Pattern Detection</div>
+              <div class="ph"><i class="fa-solid fa-gear"></i> Feature Engineering</div>
+              <div class="ph"><i class="fa-solid fa-chart-bar"></i> Classification Models</div>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn--primary btn--sm" href="https://github.com/veeresh21v-max/customer-churn-prediction" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-github"></i> View on GitHub
+              </a>
+              <a class="btn btn--outline btn--sm" href="#contact">Request Demo →</a>
+            </div>
           </div>
-          <h3>Product Recommendation System</h3>
-          <p>
-            Collaborative filtering recommendation system using KNN and Pearson correlation on ~3K records.
-            Built full workflow with Django (MVT).
-          </p>
-          <div class="card__actions">
-            <a class="link" href="#" target="_blank" rel="noreferrer">GitHub →</a>
-            <a class="link" href="#contact">Request demo →</a>
+          <div class="project-card__right">
+            <div class="project-visual">
+              <div class="vis-window">
+                <div class="vis-bar"><span></span><span></span><span></span></div>
+                <div class="vis-code">
+                  <div><span class="kw">import</span> pandas <span class="kw">as</span> pd</div>
+                  <div><span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> RandomForestClassifier</div>
+                  <div>&nbsp;</div>
+                  <div>df = pd.<span class="fn">read_csv</span>(<span class="str">'customers.csv'</span>)</div>
+                  <div>df.<span class="fn">dropna</span>(inplace=<span class="val">True</span>)</div>
+                  <div>&nbsp;</div>
+                  <div>model = RandomForestClassifier()</div>
+                  <div>model.<span class="fn">fit</span>(X_train, y_train)</div>
+                  <div><span class="cmt"># Accuracy: 87.4%</span></div>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
-        <article class="card card--hover">
-          <div class="card__top">
-            <span class="tag">Python</span>
-            <span class="tag">NLP</span>
-          </div>
-          <h3>Voice Based Email Service</h3>
-          <p>
-            Voice-controlled email automation using Google Speech Recognition API and yagmail to enable hands-free communication.
-          </p>
-          <div class="card__actions">
-            <a class="link" href="#" target="_blank" rel="noreferrer">GitHub →</a>
-            <a class="link" href="#contact">Request demo →</a>
+        <article class="project-card">
+          <div class="project-card__left">
+            <div class="project-num">02</div>
+            <div class="project-tags">
+              <span class="ptag ptag--py">Python</span>
+              <span class="ptag">NLP</span>
+              <span class="ptag">Automation</span>
+              <span class="ptag">Google Speech API</span>
+            </div>
+            <h3 class="project-title">Voice Based Email Service</h3>
+            <p class="project-desc">
+              Engineered a Python voice-to-text email automation tool using Google Speech Recognition API and yagmail. Users compose and send emails entirely hands-free — a practical Python automation project demonstrating real-world NLP and scripting skills.
+            </p>
+            <div class="project-highlights">
+              <div class="ph"><i class="fa-solid fa-microphone"></i> Google Speech Recognition</div>
+              <div class="ph"><i class="fa-solid fa-robot"></i> Email Automation (yagmail)</div>
+              <div class="ph"><i class="fa-solid fa-bolt"></i> Hands-free UX</div>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn--outline btn--sm" href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-github"></i> GitHub Profile
+              </a>
+              <a class="btn btn--outline btn--sm" href="#contact">Request Demo →</a>
+            </div>
           </div>
         </article>
 
-        <article class="card card--hover">
-          <div class="card__top">
-            <span class="tag">EDA</span>
-            <span class="tag">Dashboard</span>
-          </div>
-          <h3>KPI Dashboard (Internship)</h3>
-          <p>
-            EDA using PostgreSQL and dashboarding in Looker Studio to visualize KPIs and support data-driven decisions.
-          </p>
-          <div class="card__actions">
-            <a class="link" href="#experience">See internship →</a>
+        <article class="project-card">
+          <div class="project-card__left">
+            <div class="project-num">03</div>
+            <div class="project-tags">
+              <span class="ptag">SQL</span>
+              <span class="ptag">EDA</span>
+              <span class="ptag">Looker Studio</span>
+              <span class="ptag">KPI Dashboard</span>
+            </div>
+            <h3 class="project-title">KPI Dashboard — Internship Project</h3>
+            <p class="project-desc">
+              During my internship at Excelerate, performed EDA on structured business datasets using SQL to surface trends and anomalies. Designed an interactive KPI dashboard in Looker Studio that translated raw data into visual narratives for stakeholder decision-making.
+            </p>
+            <div class="project-highlights">
+              <div class="ph"><i class="fa-solid fa-database"></i> SQL-driven EDA</div>
+              <div class="ph"><i class="fa-solid fa-gauge-high"></i> KPI Tracking</div>
+              <div class="ph"><i class="fa-solid fa-users"></i> Stakeholder Reporting</div>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn--outline btn--sm" href="#experience">See Internship →</a>
+            </div>
           </div>
         </article>
+
       </div>
-
-      <p class="muted small">
-        Tip: Replace the GitHub “#” links once you upload project repos.
-      </p>
     </div>
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="section section--alt">
+  <section id="experience" class="section section--dark">
     <div class="container">
       <div class="section__head">
-        <h2>Experience</h2>
-        <p class="muted">Industry exposure.</p>
+        <div class="section__label">04 / experience</div>
+        <h2 class="section__title">Industry Exposure</h2>
       </div>
-
-      <div class="card">
-        <h3>Data Visualization Associate Intern — Excelerate</h3>
-        <p class="muted">Sep 2025 · 4 weeks</p>
-        <ul class="bullets">
-          <li>Performed Exploratory Data Analysis (EDA) for business recommendations.</li>
-          <li>Built a dynamic KPI dashboard using Looker Studio.</li>
-          <li>Used PostgreSQL for data extraction and analysis.</li>
-        </ul>
+      <div class="exp-card">
+        <div class="exp-left">
+          <div class="exp-company">Excelerate</div>
+          <div class="exp-duration">Sep 2025 · 4 Weeks</div>
+          <div class="exp-badge">Remote Internship</div>
+        </div>
+        <div class="exp-right">
+          <h3 class="exp-role">Data Visualization Associate Intern</h3>
+          <ul class="exp-bullets">
+            <li><i class="fa-solid fa-circle-dot"></i> Conducted EDA on structured datasets using SQL to identify key trends, patterns, and business anomalies.</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Designed and built an interactive KPI dashboard in Looker Studio to track metrics and support decisions.</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Translated complex data findings into clear visual narratives for stakeholder presentations.</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="eschip">SQL</span>
+            <span class="eschip">EDA</span>
+            <span class="eschip">Looker Studio</span>
+            <span class="eschip">PostgreSQL</span>
+            <span class="eschip">Data Visualization</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -242,68 +382,116 @@
   <section id="certs" class="section">
     <div class="container">
       <div class="section__head">
-        <h2>Certifications</h2>
-        <p class="muted">Credibility boosters.</p>
+        <div class="section__label">05 / certifications</div>
+        <h2 class="section__title">Credentials</h2>
       </div>
+      <div class="certs__grid">
 
-      <div class="grid2">
-        <div class="card">
-          <ul class="bullets">
-            <li>IBM Machine Learning Specialist – Associate</li>
-            <li>MLOps Fundamentals (Google Cloud)</li>
-            <li>Deloitte Data Analytics Job Simulation (Tableau)</li>
-          </ul>
+        <div class="cert-card">
+          <div class="cert-icon cert-icon--ms"><i class="fa-brands fa-microsoft"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Excel 2019 Expert</div>
+            <div class="cert-issuer">Microsoft Office Specialist · Oct 2025</div>
+          </div>
+          <div class="cert-badge cert-badge--gold">MOS</div>
         </div>
-        <div class="card">
-          <ul class="bullets">
-            <li>Python Essentials 1 (Cisco)</li>
-            <li>Python for Data Science (IBM)</li>
-          </ul>
+
+        <div class="cert-card">
+          <div class="cert-icon cert-icon--ms"><i class="fa-brands fa-linkedin"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Career Essentials in Data Analysis</div>
+            <div class="cert-issuer">Microsoft &amp; LinkedIn</div>
+          </div>
         </div>
+
+        <div class="cert-card">
+          <div class="cert-icon cert-icon--ms"><i class="fa-brands fa-microsoft"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">MTA: Introduction to Programming (HTML &amp; CSS)</div>
+            <div class="cert-issuer">Microsoft Technology Associate</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon cert-icon--ibm"><i class="fa-solid fa-atom"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Python 101 for Data Science</div>
+            <div class="cert-issuer">IBM Developer Skills Network · Cognitive Class</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon cert-icon--cisco"><i class="fa-solid fa-network-wired"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Python Essentials 1</div>
+            <div class="cert-issuer">Cisco Networking Academy</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon cert-icon--del"><i class="fa-solid fa-chart-simple"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Data Analytics Job Simulation</div>
+            <div class="cert-issuer">Deloitte</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact / Footer -->
   <footer id="contact" class="footer">
-    <div class="container footer__grid">
-      <div>
-        <h2>Let’s connect</h2>
-        <p class="muted">For internships, entry-level AI/ML roles, and projects.</p>
-        <div class="footer__links">
-          <a class="meta" href="mailto:veeresh21.v@gmail.com"><i class="fa-solid fa-envelope"></i> veeresh21.v@gmail.com</a>
-          <span class="meta"><i class="fa-solid fa-phone"></i> +91-9030859468</span>
-          <a class="meta" href="https://www.linkedin.com/in/veeresh-kambhalamatam" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <div class="footer__top">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__left">
+            <div class="section__label" style="margin-bottom:14px">06 / contact</div>
+            <h2 class="footer__title">Let's Build<br><span class="accent-text">Something Together</span></h2>
+            <p class="footer__sub">
+              Open to entry-level Data Analyst, Python Analyst, and related roles. Let's talk about how I can contribute to your team.
+            </p>
+            <div class="footer__contacts">
+              <a class="flink" href="mailto:veeresh21.v@gmail.com">
+                <i class="fa-solid fa-envelope"></i><span>veeresh21.v@gmail.com</span>
+              </a>
+              <a class="flink" href="tel:+919030859468">
+                <i class="fa-solid fa-phone"></i><span>+91-9030859468</span>
+              </a>
+              <a class="flink" href="https://www.linkedin.com/in/veeresh-kambhalamatam" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-linkedin-in"></i><span>linkedin.com/in/veeresh-kambhalamatam</span>
+              </a>
+              <a class="flink" href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-github"></i><span>github.com/veeresh21v-max</span>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" onsubmit="return false;">
+            <div class="form-row">
+              <label><span>Name</span><input type="text" placeholder="Your name" /></label>
+              <label><span>Email</span><input type="email" placeholder="your@email.com" /></label>
+            </div>
+            <label><span>Subject</span><input type="text" placeholder="Opportunity / Collaboration / Just saying hi" /></label>
+            <label><span>Message</span><textarea rows="5" placeholder="Tell me about the role or project..."></textarea></label>
+            <button class="btn btn--primary" type="button" id="fakeSendBtn">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+            <p class="form-note">Demo form — connect via LinkedIn or email for guaranteed response.</p>
+          </form>
         </div>
       </div>
-
-      <form class="contact" onsubmit="return false;">
-        <label>
-          Name
-          <input type="text" placeholder="Your name" />
-        </label>
-        <label>
-          Email
-          <input type="email" placeholder="Your email" />
-        </label>
-        <label>
-          Message
-          <textarea rows="4" placeholder="Write your message..."></textarea>
-        </label>
-        <button class="btn" type="button" id="fakeSendBtn">Send (demo)</button>
-        <p class="muted small">This is a demo form. Add EmailJS later if you want real email sending.</p>
-      </form>
     </div>
-
-    <div class="container footer__bottom">
-      <span class="muted small">© 2026 Veeresh Kambhalamatam</span>
-      <a class="muted small" href="#home">Back to top</a>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <span class="brand">VK<span class="brand-dot">.</span></span>
+        <span class="muted-sm">© 2026 Veeresh Kambhalamatam · Data-driven by nature</span>
+        <a class="muted-sm" href="#home">↑ Back to top</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
-  <!-- Your JS -->
   <script src="script.js"></script>
 </body>
 </html>
