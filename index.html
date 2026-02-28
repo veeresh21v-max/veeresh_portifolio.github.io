@@ -1,511 +1,808 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Veeresh Kambhalamatam | Data Analyst & Python Developer</title>
-  <meta name="description" content="Veeresh Kambhalamatam — Data Analyst skilled in Python, SQL, Power BI, Excel, EDA, and ML. MCA graduate seeking data-driven roles." />
-
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Veeresh Kambhalamatam | Data Analyst &amp; Python Developer</title>
+  <meta name="description" content="Veeresh Kambhalamatam — Data Analyst skilled in Python, SQL, Power BI, Excel, EDA, and ML. MCA graduate seeking data-driven roles."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
+<style>
+:root{
+  --bg:#0a0e1a;--bg2:#0e1525;
+  --panel:#111827;--panel2:#161d2e;
+  --text:#e8eeff;--muted:#8899bb;--muted2:#5a6a88;
+  --accent:#3b82f6;--ag:rgba(59,130,246,.18);
+  --green:#22c55e;--gg:rgba(34,197,94,.15);
+  --yellow:#eab308;
+  --border:rgba(255,255,255,.07);--border2:rgba(59,130,246,.2);
+  --shadow:0 24px 64px rgba(0,0,0,.5);
+  --r:16px;
+  --mono:'Space Mono',monospace;--body:'Outfit',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+
+.noise{pointer-events:none;position:fixed;inset:0;z-index:999;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px}
+
+.cursor{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;mix-blend-mode:screen;left:-20px;top:-20px}
+
+.container{width:min(1140px,92%);margin-inline:auto}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav.scrolled{background:rgba(10,14,26,.97)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+.brand{font-family:var(--mono);font-weight:700;font-size:1.25rem;color:var(--text);text-decoration:none}
+.brand-dot{color:var(--accent)}
+.nav__links{display:flex;gap:4px;align-items:center}
+.nav__links a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.93rem;padding:8px 13px;border-radius:10px;transition:color .2s,background .2s}
+.nav__links a:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.nav-cta{background:var(--accent)!important;color:#fff!important;font-weight:600!important;border-radius:10px!important}
+.nav-cta:hover{opacity:.88!important}
+.nav__toggle{display:none;flex-direction:column;gap:5px;background:transparent;border:1px solid var(--border);padding:10px 12px;border-radius:10px;cursor:pointer}
+.nav__toggle span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-family:var(--body);font-weight:600;font-size:.95rem;text-decoration:none;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s,background .2s,opacity .2s}
+.btn--primary{background:var(--accent);color:#fff;box-shadow:0 8px 30px rgba(59,130,246,.35)}
+.btn--primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(59,130,246,.45)}
+.btn--outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
+.btn--outline:hover{background:rgba(59,130,246,.08);border-color:var(--accent)}
+.btn--sm{padding:10px 16px;font-size:.88rem;border-radius:10px}
+
+/* HERO */
+.hero{position:relative;padding:80px 0 60px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero__bg-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(59,130,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black,transparent 80%)}
+.hero__grid{display:grid;grid-template-columns:1.2fr .9fr;gap:48px;align-items:center;position:relative;z-index:2}
+
+.hero__badge{display:inline-flex;align-items:center;gap:10px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:var(--green);padding:8px 16px;border-radius:999px;font-size:.87rem;font-weight:500;margin-bottom:26px;animation:fadeUp .6s ease both}
+.badge-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+.hero__name{display:flex;flex-direction:column;line-height:1.05;margin-bottom:16px;animation:fadeUp .6s .1s ease both}
+.hero__name .line1{font-family:var(--mono);font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;color:var(--text);letter-spacing:-.03em}
+.hero__name .line2{font-family:var(--mono);font-size:clamp(1.5rem,3.8vw,2.7rem);font-weight:400;color:var(--muted);letter-spacing:-.02em}
+.accent-text{color:var(--accent)}
+
+/* Typewriter */
+.hero__role{font-family:var(--mono);font-size:1.05rem;color:var(--muted);margin-bottom:18px;min-height:2em;animation:fadeUp .6s .2s ease both}
+.role-label{color:var(--accent);font-weight:700}
+#typed-text{color:var(--text)}
+.typed-cursor{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:text-bottom;margin-left:2px;animation:blink .7s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.hero__lead{font-size:1.05rem;color:var(--muted);max-width:54ch;line-height:1.78;margin-bottom:26px;animation:fadeUp .6s .3s ease both}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px;animation:fadeUp .6s .4s ease both}
+
+.hero__contacts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;animation:fadeUp .6s .5s ease both}
+.contact-pill{display:inline-flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-size:.88rem;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);transition:color .2s,border-color .2s}
+.contact-pill:hover{color:var(--text);border-color:var(--border2)}
+
+.hero__socials{display:flex;gap:10px;animation:fadeUp .6s .6s ease both}
+.social-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:1rem;transition:color .2s,border-color .2s,transform .2s}
+.social-icon:hover{color:var(--accent);border-color:var(--border2);transform:translateY(-2px)}
+
+/* Hero code panel */
+.hero__panel{background:var(--panel);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);animation:fadeUp .7s .2s ease both}
+.panel__header{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--panel2);border-bottom:1px solid var(--border)}
+.panel__dots{display:flex;gap:6px}
+.panel__dots span{width:11px;height:11px;border-radius:50%}
+.panel__dots span:nth-child(1){background:#ff5f57}
+.panel__dots span:nth-child(2){background:#febb2d}
+.panel__dots span:nth-child(3){background:#28c840}
+.panel__tag{font-family:var(--mono);font-size:.77rem;color:var(--muted2)}
+.panel__code{padding:18px 20px;font-family:var(--mono);font-size:.81rem;line-height:1.9;color:var(--muted)}
+.cl{white-space:nowrap}.cl.i{padding-left:20px}
+.kw{color:#c792ea}.str{color:#89ddff}.val{color:#c3e88d}.num{color:#f78c6c}.fn{color:#82aaff}.cm{color:var(--muted2);font-style:italic}
+.panel__stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border)}
+.pstat{padding:14px 10px;text-align:center;border-right:1px solid var(--border)}
+.pstat:last-child{border-right:none}
+.pstat__n{font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--accent)}
+.pstat__l{font-size:.77rem;color:var(--muted2);margin-top:2px}
+
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted2);font-size:.73rem;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;z-index:2;animation:fadeIn 1s 1.5s ease both}
+.scroll-line{width:1px;height:38px;background:linear-gradient(to bottom,var(--muted2),transparent);animation:scrollDrop 2s ease-in-out infinite}
+@keyframes scrollDrop{0%,100%{opacity:1}50%{opacity:.25;transform:scaleY(.5)}}
+
+/* SECTIONS */
+.section{padding:80px 0}
+.section--dark{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.section__head{margin-bottom:48px}
+.section__label{font-family:var(--mono);font-size:.77rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.section__title{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-.03em;color:var(--text)}
+
+/* ABOUT */
+.about__grid{display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:start}
+.about__text p{color:var(--muted);font-size:1.03rem;margin-bottom:16px;line-height:1.8}
+.about__text strong{color:var(--text);font-weight:600}
+.about__tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.atag{padding:7px 14px;border-radius:999px;border:1px solid var(--border2);background:var(--ag);color:var(--accent);font-size:.84rem;font-weight:500}
+.about__edu h3{font-family:var(--mono);font-size:.88rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px}
+.edu-card{display:flex;gap:16px;align-items:flex-start;background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:14px;transition:border-color .2s}
+.edu-card:hover{border-color:var(--border2)}
+.edu-icon{width:40px;height:40px;border-radius:10px;background:var(--ag);color:var(--accent);display:grid;place-items:center;flex-shrink:0}
+.edu-title{font-weight:600;font-size:.93rem;color:var(--text)}
+.edu-place{color:var(--muted);font-size:.87rem;margin-top:3px}
+.edu-year{color:var(--muted2);font-size:.81rem;font-family:var(--mono);margin-top:4px}
+
+/* SKILLS */
+.skills__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.skill-group{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:24px;transition:border-color .25s,transform .25s}
+.skill-group:hover{border-color:var(--border2);transform:translateY(-4px)}
+.skill-group__icon{width:44px;height:44px;border-radius:12px;background:var(--ag);color:var(--accent);display:grid;place-items:center;font-size:1.2rem;margin-bottom:14px}
+.skill-group__title{font-family:var(--mono);font-size:.93rem;font-weight:700;color:var(--text);margin-bottom:14px}
+.skill-chips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);font-size:.81rem;font-weight:500}
+.schip--hi{background:var(--ag);border-color:var(--border2);color:var(--accent);font-weight:600}
+
+/* PROJECTS */
+.projects__list{display:flex;flex-direction:column;gap:28px}
+.project-card{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr;gap:32px;transition:border-color .25s,box-shadow .25s}
+.project-card:hover{border-color:var(--border2);box-shadow:0 8px 40px rgba(59,130,246,.08)}
+.project-card--featured{grid-template-columns:1.2fr .8fr;border-color:rgba(59,130,246,.2);background:linear-gradient(135deg,var(--panel),rgba(59,130,246,.04))}
+.project-card--featured:hover{box-shadow:0 12px 60px rgba(59,130,246,.14)}
+.project-num{font-family:var(--mono);font-size:.74rem;color:var(--muted2);letter-spacing:.1em;margin-bottom:14px}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.ptag{padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);font-size:.79rem;font-weight:500}
+.ptag--py{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.25);color:#93c5fd}
+.ptag--ml{background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.25);color:#c4b5fd}
+.project-title{font-size:1.33rem;font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.3}
+.project-desc{color:var(--muted);line-height:1.75;font-size:.96rem;margin-bottom:20px}
+.project-highlights{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.ph{display:flex;align-items:center;gap:8px;font-size:.84rem;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:7px 12px;border-radius:10px}
+.ph i{color:var(--accent);font-size:.79rem}
+.project-actions{display:flex;gap:12px;flex-wrap:wrap}
+.project-visual{display:flex;align-items:center;justify-content:center}
+.vis-window{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.vis-bar{display:flex;gap:6px;padding:10px 14px;background:#161b22;border-bottom:1px solid rgba(255,255,255,.06)}
+.vis-bar span{width:10px;height:10px;border-radius:50%}
+.vis-bar span:nth-child(1){background:#ff5f57}
+.vis-bar span:nth-child(2){background:#febb2d}
+.vis-bar span:nth-child(3){background:#28c840}
+.vis-code{padding:18px 20px;font-family:var(--mono);font-size:.77rem;line-height:1.85;color:#8b949e}
+
+/* EXPERIENCE */
+.exp-card{display:grid;grid-template-columns:220px 1fr;gap:40px;background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:40px;transition:border-color .2s}
+.exp-card:hover{border-color:var(--border2)}
+.exp-left{border-right:1px solid var(--border);padding-right:32px}
+.exp-company{font-family:var(--mono);font-size:1.2rem;font-weight:700;color:var(--accent);margin-bottom:8px}
+.exp-duration{font-size:.87rem;color:var(--muted);font-family:var(--mono);margin-bottom:10px}
+.exp-badge{display:inline-block;padding:5px 12px;border-radius:999px;background:var(--gg);border:1px solid rgba(34,197,94,.25);color:var(--green);font-size:.77rem;font-weight:600}
+.exp-role{font-size:1.18rem;font-weight:700;color:var(--text);margin-bottom:18px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:22px}
+.exp-bullets li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:.96rem;line-height:1.7}
+.exp-bullets li i{color:var(--accent);font-size:.64rem;margin-top:7px;flex-shrink:0}
+.exp-stack{display:flex;flex-wrap:wrap;gap:8px}
+.eschip{padding:6px 12px;border-radius:999px;background:var(--ag);border:1px solid var(--border2);color:var(--accent);font-size:.81rem;font-weight:500}
+
+/* CERTS */
+.certs__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.cert-card{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:20px;transition:border-color .2s,transform .2s;position:relative}
+.cert-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.cert-card--link{text-decoration:none;cursor:pointer}
+.cert-card--link .cert-issuer{color:var(--accent)}
+.cert-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.1rem;flex-shrink:0}
+.cert-icon--ms{background:rgba(0,120,212,.15);color:#5ba4e0}
+.cert-icon--li{background:rgba(0,119,181,.15);color:#5ba4e0}
+.cert-icon--ibm{background:rgba(20,100,255,.15);color:#7fb3ff}
+.cert-icon--gcp{background:rgba(66,133,244,.12);color:#60a5fa}
+.cert-body{flex:1}
+.cert-title{font-weight:600;font-size:.91rem;color:var(--text);margin-bottom:4px;line-height:1.35}
+.cert-issuer{color:var(--muted2);font-size:.79rem}
+.cert-badge{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:.67rem;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.05em}
+.cert-badge--gold{background:rgba(234,179,8,.15);color:var(--yellow);border:1px solid rgba(234,179,8,.3)}
+.cert-badge--blue{background:rgba(20,100,255,.15);color:#7fb3ff;border:1px solid rgba(20,100,255,.3)}
+.cert-badge--gcp{background:rgba(52,168,83,.15);color:#4ade80;border:1px solid rgba(52,168,83,.3)}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border)}
+.footer__top{padding:80px 0 60px}
+.footer__grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
+.footer__title{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:16px;color:var(--text)}
+.footer__sub{color:var(--muted);font-size:1rem;margin-bottom:32px;max-width:44ch;line-height:1.7}
+.footer__contacts{display:flex;flex-direction:column;gap:14px}
+.flink{display:flex;align-items:center;gap:14px;color:var(--muted);text-decoration:none;font-size:.94rem;transition:color .2s}
+.flink:hover{color:var(--text)}
+.flink-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;place-items:center;color:var(--accent);font-size:.88rem;flex-shrink:0}
+.contact-form{display:grid;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-form label{display:grid;gap:6px;font-size:.87rem;color:var(--muted)}
+.contact-form input,.contact-form textarea{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px 14px;color:var(--text);font-family:var(--body);font-size:.94rem;outline:none;transition:border-color .2s;width:100%}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--border2)}
+.form-note{font-size:.79rem;color:var(--muted2);margin-top:2px}
+.footer__bottom{border-top:1px solid var(--border);padding:20px 0;background:rgba(0,0,0,.15)}
+.footer__bottom-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.muted-sm{color:var(--muted2);font-size:.81rem;text-decoration:none}
+a.muted-sm:hover{color:var(--muted)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .about__grid{grid-template-columns:1fr}
+  .project-card--featured{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .hero__grid{grid-template-columns:1fr}
+  .hero__panel{display:none}
+  .skills__grid{grid-template-columns:1fr}
+  .exp-card{grid-template-columns:1fr}
+  .exp-left{border-right:none;border-bottom:1px solid var(--border);padding-right:0;padding-bottom:24px}
+  .footer__grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .nav__toggle{display:flex}
+  .nav__links{display:none;position:absolute;right:4%;left:4%;top:64px;background:rgba(10,14,26,.98);border:1px solid var(--border);border-radius:16px;padding:14px;flex-direction:column;align-items:stretch}
+  .nav__links.open{display:flex}
+  .nav__links a{padding:12px 16px;border-radius:10px}
+  .project-card{padding:24px}
+  .section{padding:56px 0}
+  .hero{padding:60px 0 40px;min-height:auto}
+  .certs__grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero__cta{flex-direction:column}
+  .btn{width:100%;justify-content:center}
+  .project-actions .btn{width:auto}
+}
+</style>
 </head>
 <body>
 
-  <div class="noise"></div>
-  <div class="cursor" id="cursor"></div>
+<div class="noise"></div>
+<div class="cursor" id="cursor"></div>
 
-  <!-- Navbar -->
-  <header class="nav" id="navbar">
-    <div class="container nav__inner">
-      <a class="brand" href="#home">VK<span class="brand-dot">.</span></a>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav__links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#certs">Certifications</a>
-        <a class="nav-cta" href="#contact">Let's Talk</a>
-      </nav>
-    </div>
-  </header>
+<!-- NAV -->
+<header class="nav" id="navbar">
+  <div class="container nav__inner">
+    <a class="brand" href="#home">VK<span class="brand-dot">.</span></a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certs">Certifications</a>
+      <a class="nav-cta" href="#contact">Let's Talk</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <main id="home" class="hero">
-    <div class="hero__bg-grid"></div>
-    <div class="container hero__grid">
-      <div class="hero__copy">
-        <div class="hero__badge">
-          <span class="badge-dot"></span>
-          <span>Open to Data Analyst &amp; Python roles</span>
-        </div>
-        <h1 class="hero__name">
-          <span class="line1">Veeresh</span>
-          <span class="line2">Kambhala<span class="accent-text">matam</span></span>
-        </h1>
-        <div class="hero__role">
-          <span class="role-label">{ </span><span id="typed"></span><span class="role-label"> }</span>
-        </div>
-        <p class="hero__lead">
-          MCA graduate who turns raw data into clear decisions — through Python, SQL, dashboards, and a touch of machine learning.
-        </p>
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#projects">
-            <i class="fa-solid fa-chart-column"></i> View Projects
-          </a>
-          <a class="btn btn--outline" href="#contact">
-            <i class="fa-solid fa-paper-plane"></i> Hire Me
-          </a>
-        </div>
-        <div class="hero__contacts">
-          <a class="contact-pill" href="/cdn-cgi/l/email-protection#a8decdcddacddbc09a9986dee8cfc5c9c1c486cbc7c5">
-            <i class="fa-solid fa-envelope"></i> <span class="__cf_email__" data-cfemail="285e4d4d5a4d5b401a19065e684f45494144064b4745">[email&#160;protected]</span>
-          </a>
-          <a class="contact-pill" href="tel:+919030859468">
-            <i class="fa-solid fa-phone"></i> +91-9030859468
-          </a>
-        </div>
-        <div class="hero__socials">
-          <a href="https://www.linkedin.com/in/veeresh-kambhalamatam" target="_blank" rel="noreferrer" class="social-icon" title="LinkedIn">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer" class="social-icon" title="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="/cdn-cgi/l/email-protection#f88e9d9d8a9d8b90cac9d68eb89f95999194d69b9795" class="social-icon" title="Email">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        </div>
+<!-- HERO -->
+<main id="home" class="hero">
+  <div class="hero__bg-grid"></div>
+  <div class="container hero__grid">
+    <div class="hero__copy">
+
+      <div class="hero__badge">
+        <span class="badge-dot"></span>
+        <span>Open to Data Analyst &amp; Python roles</span>
       </div>
 
-      <aside class="hero__panel">
-        <div class="panel__header">
-          <div class="panel__dots"><span></span><span></span><span></span></div>
-          <span class="panel__tag">quick_stats.py</span>
-        </div>
-        <div class="panel__code">
-          <div class="code-line"><span class="kw">profile</span> = {</div>
-          <div class="code-line indent"><span class="str">"name"</span>: <span class="val">"Veeresh K."</span>,</div>
-          <div class="code-line indent"><span class="str">"role"</span>: <span class="val">"Data Analyst"</span>,</div>
-          <div class="code-line indent"><span class="str">"degree"</span>: <span class="val">"MCA 2025"</span>,</div>
-          <div class="code-line indent"><span class="str">"stack"</span>: [<span class="val">"Python"</span>, <span class="val">"SQL"</span>, <span class="val">"Power BI"</span>],</div>
-          <div class="code-line indent"><span class="str">"certifications"</span>: <span class="num">6</span>,</div>
-          <div class="code-line indent"><span class="str">"projects"</span>: <span class="num">3</span>,  <span class="cmt"># +enhanced</span></div>
-          <div class="code-line indent"><span class="str">"internship"</span>: <span class="val">True</span>,</div>
-          <div class="code-line indent"><span class="str">"status"</span>: <span class="val">"available"</span> <span class="cmt"># ✓</span></div>
-          <div class="code-line">}</div>
-        </div>
-        <div class="panel__stats">
-          <div class="pstat"><div class="pstat__n">3+</div><div class="pstat__l">Projects</div></div>
-          <div class="pstat"><div class="pstat__n">6+</div><div class="pstat__l">Certificates</div></div>
-          <div class="pstat"><div class="pstat__n">1</div><div class="pstat__l">Internship</div></div>
-        </div>
-      </aside>
-    </div>
+      <h1 class="hero__name">
+        <span class="line1">Veeresh</span>
+        <span class="line2">Kambhala<span class="accent-text">matam</span></span>
+      </h1>
 
-    <div class="scroll-hint">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </main>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section__head">
-        <div class="section__label">01 / about</div>
-        <h2 class="section__title">Who I Am</h2>
+      <div class="hero__role">
+        <span class="role-label">{ </span><span id="typed-text"></span><span class="typed-cursor"></span><span class="role-label"> }</span>
       </div>
-      <div class="about__grid">
-        <div class="about__text">
-          <p>
-            I'm an <strong>MCA graduate</strong> from Aurora PG College, Hyderabad, with a background spanning Maths, Physics, and AI &amp; Robotics. I specialize in <strong>extracting meaning from data</strong> — cleaning messy datasets in Python, writing analytical SQL queries, building interactive Power BI dashboards, and applying ML models to reveal hidden patterns.
-          </p>
-          <p>
-            My approach is focused: understand the business question, find the right data, clean it rigorously, analyse it thoroughly, and present findings that drive real decisions. I complement this with ML knowledge — knowing when a predictive model adds value and how to build one.
-          </p>
-          <div class="about__tags">
-            <span class="atag">Problem Solver</span>
-            <span class="atag">Data Storyteller</span>
-            <span class="atag">Fast Learner</span>
-            <span class="atag">Detail-Oriented</span>
-          </div>
-        </div>
-        <div class="about__edu">
-          <h3>Education</h3>
-          <div class="edu-card">
-            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div>
-              <div class="edu-title">MCA — Master of Computer Applications</div>
-              <div class="edu-place">Aurora PG College, Hyderabad</div>
-              <div class="edu-year">2023 – 2025</div>
-            </div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-icon"><i class="fa-solid fa-flask"></i></div>
-            <div>
-              <div class="edu-title">B.Sc — Maths, Physics, AI &amp; Robotics</div>
-              <div class="edu-place">Aditya Degree College, Kakinada</div>
-              <div class="edu-year">2020 – 2023</div>
-            </div>
-          </div>
-        </div>
+
+      <p class="hero__lead">
+        MCA graduate who turns raw data into clear decisions — through Python, SQL, dashboards, and a touch of machine learning.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#projects"><i class="fa-solid fa-chart-column"></i> View Projects</a>
+        <a class="btn btn--outline" href="#contact"><i class="fa-solid fa-paper-plane"></i> Hire Me</a>
+      </div>
+
+      <div class="hero__contacts">
+        <a class="contact-pill" id="email-link" href="#">
+          <i class="fa-solid fa-envelope"></i><span id="email-text">Loading...</span>
+        </a>
+        <span class="contact-pill">
+          <i class="fa-solid fa-phone"></i> +91-9030859468
+        </span>
+      </div>
+
+      <div class="hero__socials">
+        <a href="https://www.linkedin.com/in/veeresh-kambhalamatam" target="_blank" rel="noreferrer" class="social-icon" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer" class="social-icon" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a id="email-social" href="#" class="social-icon" title="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
       </div>
     </div>
-  </section>
 
-  <!-- Skills -->
-  <section id="skills" class="section section--dark">
-    <div class="container">
-      <div class="section__head">
-        <div class="section__label">02 / skills</div>
-        <h2 class="section__title">Tech Stack</h2>
+    <!-- Code panel -->
+    <aside class="hero__panel">
+      <div class="panel__header">
+        <div class="panel__dots"><span></span><span></span><span></span></div>
+        <span class="panel__tag">quick_stats.py</span>
       </div>
-      <div class="skills__grid">
+      <div class="panel__code">
+        <div class="cl"><span class="kw">profile</span> = {</div>
+        <div class="cl i"><span class="str">"name"</span>: <span class="val">"Veeresh K."</span>,</div>
+        <div class="cl i"><span class="str">"role"</span>: <span class="val">"Data Analyst"</span>,</div>
+        <div class="cl i"><span class="str">"degree"</span>: <span class="val">"MCA 2025"</span>,</div>
+        <div class="cl i"><span class="str">"stack"</span>: [<span class="val">"Python"</span>, <span class="val">"SQL"</span>, <span class="val">"Power BI"</span>],</div>
+        <div class="cl i"><span class="str">"certifications"</span>: <span class="num">6</span>,</div>
+        <div class="cl i"><span class="str">"projects"</span>: <span class="num">3</span>,</div>
+        <div class="cl i"><span class="str">"internship"</span>: <span class="val">True</span>,</div>
+        <div class="cl i"><span class="str">"status"</span>: <span class="val">"available"</span> <span class="cm"># ✓</span></div>
+        <div class="cl">}</div>
+      </div>
+      <div class="panel__stats">
+        <div class="pstat"><div class="pstat__n">3+</div><div class="pstat__l">Projects</div></div>
+        <div class="pstat"><div class="pstat__n">6+</div><div class="pstat__l">Certificates</div></div>
+        <div class="pstat"><div class="pstat__n">1</div><div class="pstat__l">Internship</div></div>
+      </div>
+    </aside>
+  </div>
 
-        <div class="skill-group">
-          <div class="skill-group__icon"><i class="fa-brands fa-python"></i></div>
-          <h3 class="skill-group__title">Python &amp; Data</h3>
-          <div class="skill-chips">
-            <span class="schip schip--hi">Python</span>
-            <span class="schip schip--hi">Pandas</span>
-            <span class="schip schip--hi">NumPy</span>
-            <span class="schip">EDA</span>
-            <span class="schip">Feature Engineering</span>
-            <span class="schip">Data Cleaning</span>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</main>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__label">01 / about</div>
+      <h2 class="section__title">Who I Am</h2>
+    </div>
+    <div class="about__grid">
+      <div class="about__text">
+        <p>I'm an <strong>MCA graduate</strong> from Aurora PG College, Hyderabad, with a background in Maths, Physics, and AI &amp; Robotics. I specialize in <strong>extracting meaning from data</strong> — cleaning messy datasets in Python, writing analytical SQL queries, building interactive Power BI dashboards, and applying ML models to reveal hidden patterns.</p>
+        <p>My approach is focused: understand the business question, find the right data, clean it rigorously, analyse it thoroughly, and present findings that drive real decisions. I complement this with ML knowledge — knowing when a predictive model adds value and how to build one.</p>
+        <div class="about__tags">
+          <span class="atag">Problem Solver</span>
+          <span class="atag">Data Storyteller</span>
+          <span class="atag">Fast Learner</span>
+          <span class="atag">Detail-Oriented</span>
+        </div>
+      </div>
+      <div class="about__edu">
+        <h3>Education</h3>
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div>
+            <div class="edu-title">MCA — Master of Computer Applications</div>
+            <div class="edu-place">Aurora PG College, Hyderabad</div>
+            <div class="edu-year">2023 – 2025</div>
           </div>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group__icon"><i class="fa-solid fa-database"></i></div>
-          <h3 class="skill-group__title">Databases &amp; SQL</h3>
-          <div class="skill-chips">
-            <span class="schip schip--hi">SQL</span>
-            <span class="schip schip--hi">MySQL</span>
-            <span class="schip">PostgreSQL</span>
-            <span class="schip">Data Extraction</span>
-            <span class="schip">DBMS</span>
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fa-solid fa-flask"></i></div>
+          <div>
+            <div class="edu-title">B.Sc — Maths, Physics, AI &amp; Robotics</div>
+            <div class="edu-place">Aditya Degree College, Kakinada</div>
+            <div class="edu-year">2020 – 2023</div>
           </div>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group__icon"><i class="fa-solid fa-chart-pie"></i></div>
-          <h3 class="skill-group__title">BI &amp; Visualization</h3>
-          <div class="skill-chips">
-            <span class="schip schip--hi">Power BI</span>
-            <span class="schip schip--hi">Advanced MS Excel</span>
-            <span class="schip">Looker Studio</span>
-            <span class="schip">KPI Dashboards</span>
-            <span class="schip">Data Storytelling</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group__icon"><i class="fa-solid fa-brain"></i></div>
-          <h3 class="skill-group__title">Machine Learning</h3>
-          <div class="skill-chips">
-            <span class="schip">Scikit-learn</span>
-            <span class="schip">KNN</span>
-            <span class="schip">Regression</span>
-            <span class="schip">Decision Trees</span>
-            <span class="schip">Random Forest</span>
-            <span class="schip">Clustering</span>
-            <span class="schip">NLP</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group__icon"><i class="fa-solid fa-code"></i></div>
-          <h3 class="skill-group__title">Dev &amp; Other</h3>
-          <div class="skill-chips">
-            <span class="schip">Django</span>
-            <span class="schip">HTML &amp; CSS</span>
-            <span class="schip">JavaScript (Basic)</span>
-            <span class="schip">OOPs</span>
-            <span class="schip">Git &amp; GitHub</span>
-          </div>
-        </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section__head">
-        <div class="section__label">03 / projects</div>
-        <h2 class="section__title">Work I've Built</h2>
+<!-- SKILLS -->
+<section id="skills" class="section section--dark">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__label">02 / skills</div>
+      <h2 class="section__title">Tech Stack</h2>
+    </div>
+    <div class="skills__grid">
+      <div class="skill-group">
+        <div class="skill-group__icon"><i class="fa-brands fa-python"></i></div>
+        <h3 class="skill-group__title">Python &amp; Data</h3>
+        <div class="skill-chips">
+          <span class="schip schip--hi">Python</span><span class="schip schip--hi">Pandas</span><span class="schip schip--hi">NumPy</span>
+          <span class="schip">EDA</span><span class="schip">Feature Engineering</span><span class="schip">Data Cleaning</span>
+        </div>
       </div>
+      <div class="skill-group">
+        <div class="skill-group__icon"><i class="fa-solid fa-database"></i></div>
+        <h3 class="skill-group__title">Databases &amp; SQL</h3>
+        <div class="skill-chips">
+          <span class="schip schip--hi">SQL</span><span class="schip schip--hi">MySQL</span><span class="schip">PostgreSQL</span>
+          <span class="schip">Data Extraction</span><span class="schip">DBMS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group__icon"><i class="fa-solid fa-chart-pie"></i></div>
+        <h3 class="skill-group__title">BI &amp; Visualization</h3>
+        <div class="skill-chips">
+          <span class="schip schip--hi">Power BI</span><span class="schip schip--hi">Advanced MS Excel</span>
+          <span class="schip">Looker Studio</span><span class="schip">KPI Dashboards</span><span class="schip">Data Storytelling</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group__icon"><i class="fa-solid fa-brain"></i></div>
+        <h3 class="skill-group__title">Machine Learning</h3>
+        <div class="skill-chips">
+          <span class="schip">Scikit-learn</span><span class="schip">KNN</span><span class="schip">Regression</span>
+          <span class="schip">Decision Trees</span><span class="schip">Random Forest</span><span class="schip">Clustering</span><span class="schip">NLP</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group__icon"><i class="fa-solid fa-code"></i></div>
+        <h3 class="skill-group__title">Dev &amp; Other</h3>
+        <div class="skill-chips">
+          <span class="schip">Django</span><span class="schip">HTML &amp; CSS</span><span class="schip">JavaScript (Basic)</span>
+          <span class="schip">OOPs</span><span class="schip">Git &amp; GitHub</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="projects__list">
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__label">03 / projects</div>
+      <h2 class="section__title">Work I've Built</h2>
+    </div>
+    <div class="projects__list">
 
-        <article class="project-card project-card--featured">
-          <div class="project-card__left">
-            <div class="project-num">01</div>
-            <div class="project-tags">
-              <span class="ptag ptag--py">Python</span>
-              <span class="ptag ptag--ml">ML</span>
-              <span class="ptag">Pandas</span>
-              <span class="ptag">Scikit-learn</span>
-              <span class="ptag">EDA</span>
-            </div>
-            <h3 class="project-title">Customer Churn Prediction</h3>
-            <p class="project-desc">
-              End-to-end ML pipeline to identify customers at risk of churning. Performed thorough EDA with Pandas and NumPy to uncover churn drivers, engineered features, and trained classification models using Scikit-learn — delivering actionable insights for customer retention strategy.
-            </p>
-            <div class="project-highlights">
-              <div class="ph"><i class="fa-solid fa-magnifying-glass-chart"></i> EDA &amp; Pattern Detection</div>
-              <div class="ph"><i class="fa-solid fa-gear"></i> Feature Engineering</div>
-              <div class="ph"><i class="fa-solid fa-chart-bar"></i> Classification Models</div>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn--primary btn--sm" href="https://github.com/veeresh21v-max/customer-churn-prediction" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-github"></i> View on GitHub
-              </a>
-              <a class="btn btn--outline btn--sm" href="#contact">Request Demo →</a>
-            </div>
+      <article class="project-card project-card--featured">
+        <div class="project-card__left">
+          <div class="project-num">01</div>
+          <div class="project-tags">
+            <span class="ptag ptag--py">Python</span><span class="ptag ptag--ml">ML</span>
+            <span class="ptag">Pandas</span><span class="ptag">Scikit-learn</span><span class="ptag">EDA</span>
           </div>
-          <div class="project-card__right">
-            <div class="project-visual">
-              <div class="vis-window">
-                <div class="vis-bar"><span></span><span></span><span></span></div>
-                <div class="vis-code">
-                  <div><span class="kw">import</span> pandas <span class="kw">as</span> pd</div>
-                  <div><span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> RandomForestClassifier</div>
-                  <div>&nbsp;</div>
-                  <div>df = pd.<span class="fn">read_csv</span>(<span class="str">'customers.csv'</span>)</div>
-                  <div>df.<span class="fn">dropna</span>(inplace=<span class="val">True</span>)</div>
-                  <div>&nbsp;</div>
-                  <div>model = RandomForestClassifier()</div>
-                  <div>model.<span class="fn">fit</span>(X_train, y_train)</div>
-                  <div><span class="cmt"># Accuracy: 87.4%</span></div>
-                </div>
+          <h3 class="project-title">Customer Churn Prediction</h3>
+          <p class="project-desc">End-to-end ML pipeline to identify customers at risk of churning. Performed thorough EDA with Pandas and NumPy to uncover churn drivers, engineered features, and trained classification models using Scikit-learn — delivering actionable insights for customer retention strategy.</p>
+          <div class="project-highlights">
+            <div class="ph"><i class="fa-solid fa-magnifying-glass-chart"></i> EDA &amp; Pattern Detection</div>
+            <div class="ph"><i class="fa-solid fa-gear"></i> Feature Engineering</div>
+            <div class="ph"><i class="fa-solid fa-chart-bar"></i> Classification Models</div>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn--primary btn--sm" href="https://github.com/veeresh21v-max/customer-churn-prediction" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+            <a class="btn btn--outline btn--sm" href="#contact">Request Demo →</a>
+          </div>
+        </div>
+        <div class="project-card__right">
+          <div class="project-visual">
+            <div class="vis-window">
+              <div class="vis-bar"><span></span><span></span><span></span></div>
+              <div class="vis-code">
+                <div><span class="kw">import</span> pandas <span class="kw">as</span> pd</div>
+                <div><span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> RandomForestClassifier</div>
+                <div>&nbsp;</div>
+                <div>df = pd.<span class="fn">read_csv</span>(<span class="str">'customers.csv'</span>)</div>
+                <div>df.<span class="fn">dropna</span>(inplace=<span class="val">True</span>)</div>
+                <div>&nbsp;</div>
+                <div>model = RandomForestClassifier()</div>
+                <div>model.<span class="fn">fit</span>(X_train, y_train)</div>
+                <div><span class="cm"># Accuracy: 87.4%</span></div>
               </div>
             </div>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="project-card project-card--featured">
-          <div class="project-card__left">
-            <div class="project-num">02</div>
-            <div class="project-tags">
-              <span class="ptag ptag--py">Python</span>
-              <span class="ptag ptag--ml">NLP</span>
-              <span class="ptag">TextBlob</span>
-              <span class="ptag">NLTK</span>
-              <span class="ptag">SQLite</span>
-              <span class="ptag">Matplotlib</span>
-            </div>
-            <h3 class="project-title">Intelligent Voice Email System</h3>
-            <p class="project-desc">
-              An AI-powered voice assistant that composes and sends emails using speech — no typing needed. Goes beyond basic voice-to-text: performs sentiment analysis on composed emails, auto-generates subject lines via noun phrase extraction, extracts keywords with NLTK, logs every email in a SQLite database, and visualizes analytics (sentiment distribution, word count, send status) through a Matplotlib dashboard.
-            </p>
-            <div class="project-highlights">
-              <div class="ph"><i class="fa-solid fa-microphone"></i> Google Speech Recognition</div>
-              <div class="ph"><i class="fa-solid fa-brain"></i> Sentiment Analysis (TextBlob)</div>
-              <div class="ph"><i class="fa-solid fa-key"></i> Keyword &amp; Subject Extraction</div>
-              <div class="ph"><i class="fa-solid fa-database"></i> SQLite Email History</div>
-              <div class="ph"><i class="fa-solid fa-chart-bar"></i> Analytics Dashboard</div>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn--primary btn--sm" href="https://github.com/veeresh21v-max/intelligent-voice-email-system" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-github"></i> View on GitHub
-              </a>
-              <a class="btn btn--outline btn--sm" href="#contact">Request Demo →</a>
-            </div>
+      <article class="project-card project-card--featured">
+        <div class="project-card__left">
+          <div class="project-num">02</div>
+          <div class="project-tags">
+            <span class="ptag ptag--py">Python</span><span class="ptag ptag--ml">NLP</span>
+            <span class="ptag">TextBlob</span><span class="ptag">NLTK</span><span class="ptag">SQLite</span><span class="ptag">Matplotlib</span>
           </div>
-          <div class="project-card__right">
-            <div class="project-visual">
-              <div class="vis-window">
-                <div class="vis-bar"><span></span><span></span><span></span></div>
-                <div class="vis-code">
-                  <div><span class="kw">from</span> textblob <span class="kw">import</span> TextBlob</div>
-                  <div><span class="kw">import</span> sqlite3, yagmail</div>
-                  <div>&nbsp;</div>
-                  <div>blob = TextBlob(voice_text)</div>
-                  <div>sentiment = blob.sentiment.polarity</div>
-                  <div>subject = <span class="fn">extract_noun_phrase</span>(blob)</div>
-                  <div>&nbsp;</div>
-                  <div><span class="fn">log_to_db</span>(voice_text, sentiment)</div>
-                  <div><span class="fn">send_email</span>(subject, voice_text)</div>
-                  <div><span class="cmt"># Dashboard auto-updates ✓</span></div>
-                </div>
+          <h3 class="project-title">Intelligent Voice Email System</h3>
+          <p class="project-desc">AI-powered voice assistant that composes and sends emails using speech — no typing needed. Goes beyond basic voice-to-text: performs sentiment analysis with TextBlob, auto-generates subject lines via noun phrase extraction, extracts keywords with NLTK, logs emails in SQLite, and visualizes analytics (sentiment distribution, word count, send status) in a Matplotlib dashboard.</p>
+          <div class="project-highlights">
+            <div class="ph"><i class="fa-solid fa-microphone"></i> Google Speech Recognition</div>
+            <div class="ph"><i class="fa-solid fa-brain"></i> Sentiment Analysis (TextBlob)</div>
+            <div class="ph"><i class="fa-solid fa-key"></i> Keyword &amp; Subject Extraction</div>
+            <div class="ph"><i class="fa-solid fa-database"></i> SQLite Email History</div>
+            <div class="ph"><i class="fa-solid fa-chart-bar"></i> Analytics Dashboard</div>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn--primary btn--sm" href="https://github.com/veeresh21v-max/intelligent-voice-email-system" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+            <a class="btn btn--outline btn--sm" href="#contact">Request Demo →</a>
+          </div>
+        </div>
+        <div class="project-card__right">
+          <div class="project-visual">
+            <div class="vis-window">
+              <div class="vis-bar"><span></span><span></span><span></span></div>
+              <div class="vis-code">
+                <div><span class="kw">from</span> textblob <span class="kw">import</span> TextBlob</div>
+                <div><span class="kw">import</span> sqlite3, yagmail</div>
+                <div>&nbsp;</div>
+                <div>blob = TextBlob(voice_text)</div>
+                <div>sentiment = blob.sentiment.polarity</div>
+                <div>subject = <span class="fn">extract_noun_phrase</span>(blob)</div>
+                <div>&nbsp;</div>
+                <div><span class="fn">log_to_db</span>(voice_text, sentiment)</div>
+                <div><span class="fn">send_email</span>(subject, voice_text)</div>
+                <div><span class="cm"># Dashboard auto-updates ✓</span></div>
               </div>
             </div>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="project-card">
-          <div class="project-card__left">
-            <div class="project-num">03</div>
-            <div class="project-tags">
-              <span class="ptag">SQL</span>
-              <span class="ptag">EDA</span>
-              <span class="ptag">Looker Studio</span>
-              <span class="ptag">KPI Dashboard</span>
-            </div>
-            <h3 class="project-title">KPI Dashboard — Internship Project</h3>
-            <p class="project-desc">
-              During my internship at Excelerate, performed EDA on structured business datasets using SQL to surface trends and anomalies. Designed an interactive KPI dashboard in Looker Studio that translated raw data into visual narratives for stakeholder decision-making.
-            </p>
-            <div class="project-highlights">
-              <div class="ph"><i class="fa-solid fa-database"></i> SQL-driven EDA</div>
-              <div class="ph"><i class="fa-solid fa-gauge-high"></i> KPI Tracking</div>
-              <div class="ph"><i class="fa-solid fa-users"></i> Stakeholder Reporting</div>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn--outline btn--sm" href="#experience">See Internship →</a>
-            </div>
+      <article class="project-card">
+        <div class="project-card__left">
+          <div class="project-num">03</div>
+          <div class="project-tags">
+            <span class="ptag">SQL</span><span class="ptag">EDA</span><span class="ptag">Looker Studio</span><span class="ptag">KPI Dashboard</span>
           </div>
-        </article>
+          <h3 class="project-title">KPI Dashboard — Internship Project</h3>
+          <p class="project-desc">During my internship at Excelerate, performed EDA on structured business datasets using SQL to surface trends and anomalies. Designed an interactive KPI dashboard in Looker Studio that translated raw data into clear visual narratives for stakeholder decision-making.</p>
+          <div class="project-highlights">
+            <div class="ph"><i class="fa-solid fa-database"></i> SQL-driven EDA</div>
+            <div class="ph"><i class="fa-solid fa-gauge-high"></i> KPI Tracking</div>
+            <div class="ph"><i class="fa-solid fa-users"></i> Stakeholder Reporting</div>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn--outline btn--sm" href="#experience">See Internship →</a>
+          </div>
+        </div>
+      </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section section--dark">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__label">04 / experience</div>
+      <h2 class="section__title">Industry Exposure</h2>
+    </div>
+    <div class="exp-card">
+      <div class="exp-left">
+        <div class="exp-company">Excelerate</div>
+        <div class="exp-duration">Sep 2025 · 4 Weeks</div>
+        <div class="exp-badge">Remote Internship</div>
+      </div>
+      <div class="exp-right">
+        <h3 class="exp-role">Data Visualization Associate Intern</h3>
+        <ul class="exp-bullets">
+          <li><i class="fa-solid fa-circle-dot"></i> Conducted EDA on structured datasets using SQL to identify key trends, patterns, and business anomalies.</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Designed and built an interactive KPI dashboard in Looker Studio to track metrics and support stakeholder decisions.</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Translated complex data findings into clear visual narratives for stakeholder presentations.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="eschip">SQL</span><span class="eschip">EDA</span><span class="eschip">Looker Studio</span>
+          <span class="eschip">PostgreSQL</span><span class="eschip">Data Visualization</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Experience -->
-  <section id="experience" class="section section--dark">
+<!-- CERTIFICATIONS -->
+<section id="certs" class="section">
+  <div class="container">
+    <div class="section__head">
+      <div class="section__label">05 / certifications</div>
+      <h2 class="section__title">Credentials</h2>
+    </div>
+    <div class="certs__grid">
+
+      <a class="cert-card cert-card--link" href="https://www.credly.com/badges/4a646d5b-41a8-4111-86f5-f669d90311c5/public_url" target="_blank" rel="noreferrer">
+        <div class="cert-icon cert-icon--ibm"><i class="fa-solid fa-brain"></i></div>
+        <div class="cert-body">
+          <div class="cert-title">IBM Machine Learning Specialist – Associate</div>
+          <div class="cert-issuer">IBM · Verified Credly Badge ↗</div>
+        </div>
+        <div class="cert-badge cert-badge--blue">IBM</div>
+      </a>
+
+      <a class="cert-card cert-card--link" href="https://www.credly.com/badges/6d332e97-a83b-45b4-af17-da8ee8ae8d0b/public_url" target="_blank" rel="noreferrer">
+        <div class="cert-icon cert-icon--ibm"><i class="fa-solid fa-microchip"></i></div>
+        <div class="cert-body">
+          <div class="cert-title">Code Generation &amp; Optimization Using IBM Granite</div>
+          <div class="cert-issuer">IBM SkillsBuild · Verified Credly Badge ↗</div>
+        </div>
+        <div class="cert-badge cert-badge--blue">IBM</div>
+      </a>
+
+      <a class="cert-card cert-card--link" href="https://www.skills.google/public_profiles/2b96b114-2223-4309-86aa-78e37f929f1c/badges/17800550" target="_blank" rel="noreferrer">
+        <div class="cert-icon cert-icon--gcp"><i class="fa-brands fa-google"></i></div>
+        <div class="cert-body">
+          <div class="cert-title">MLOps Fundamentals</div>
+          <div class="cert-issuer">Google Cloud Skills Boost · Verified Badge ↗</div>
+        </div>
+        <div class="cert-badge cert-badge--gcp">GCP</div>
+      </a>
+
+      <div class="cert-card">
+        <div class="cert-icon cert-icon--ms"><i class="fa-brands fa-microsoft"></i></div>
+        <div class="cert-body">
+          <div class="cert-title">Excel 2019 Expert</div>
+          <div class="cert-issuer">Microsoft Office Specialist · Oct 2025</div>
+        </div>
+        <div class="cert-badge cert-badge--gold">MOS</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon cert-icon--li"><i class="fa-brands fa-linkedin"></i></div>
+        <div class="cert-body">
+          <div class="cert-title">Career Essentials in Data Analysis</div>
+          <div class="cert-issuer">Microsoft &amp; LinkedIn</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon cert-icon--ibm"><i class="fa-solid fa-atom"></i></div>
+        <div class="cert-body">
+          <div class="cert-title">Python 101 for Data Science</div>
+          <div class="cert-issuer">IBM Developer Skills Network · Cognitive Class</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact" class="footer">
+  <div class="footer__top">
     <div class="container">
-      <div class="section__head">
-        <div class="section__label">04 / experience</div>
-        <h2 class="section__title">Industry Exposure</h2>
-      </div>
-      <div class="exp-card">
-        <div class="exp-left">
-          <div class="exp-company">Excelerate</div>
-          <div class="exp-duration">Sep 2025 · 4 Weeks</div>
-          <div class="exp-badge">Remote Internship</div>
-        </div>
-        <div class="exp-right">
-          <h3 class="exp-role">Data Visualization Associate Intern</h3>
-          <ul class="exp-bullets">
-            <li><i class="fa-solid fa-circle-dot"></i> Conducted EDA on structured datasets using SQL to identify key trends, patterns, and business anomalies.</li>
-            <li><i class="fa-solid fa-circle-dot"></i> Designed and built an interactive KPI dashboard in Looker Studio to track metrics and support decisions.</li>
-            <li><i class="fa-solid fa-circle-dot"></i> Translated complex data findings into clear visual narratives for stakeholder presentations.</li>
-          </ul>
-          <div class="exp-stack">
-            <span class="eschip">SQL</span>
-            <span class="eschip">EDA</span>
-            <span class="eschip">Looker Studio</span>
-            <span class="eschip">PostgreSQL</span>
-            <span class="eschip">Data Visualization</span>
+      <div class="footer__grid">
+        <div class="footer__left">
+          <div class="section__label" style="margin-bottom:14px">06 / contact</div>
+          <h2 class="footer__title">Let's Build<br><span class="accent-text">Something Together</span></h2>
+          <p class="footer__sub">Open to entry-level Data Analyst, Python Analyst, and related roles. Let's talk about how I can contribute to your team.</p>
+          <div class="footer__contacts">
+            <a class="flink" id="footer-email" href="#">
+              <span class="flink-icon"><i class="fa-solid fa-envelope"></i></span>
+              <span id="footer-email-text">veeresh21.v@gmail.com</span>
+            </a>
+            <a class="flink" href="tel:+919030859468">
+              <span class="flink-icon"><i class="fa-solid fa-phone"></i></span>
+              <span>+91-9030859468</span>
+            </a>
+            <a class="flink" href="https://www.linkedin.com/in/veeresh-kambhalamatam" target="_blank" rel="noreferrer">
+              <span class="flink-icon"><i class="fa-brands fa-linkedin-in"></i></span>
+              <span>linkedin.com/in/veeresh-kambhalamatam</span>
+            </a>
+            <a class="flink" href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer">
+              <span class="flink-icon"><i class="fa-brands fa-github"></i></span>
+              <span>github.com/veeresh21v-max</span>
+            </a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certifications -->
-  <section id="certs" class="section">
-    <div class="container">
-      <div class="section__head">
-        <div class="section__label">05 / certifications</div>
-        <h2 class="section__title">Credentials</h2>
-      </div>
-      <div class="certs__grid">
-
-        <div class="cert-card">
-          <div class="cert-icon cert-icon--ms"><i class="fa-brands fa-microsoft"></i></div>
-          <div class="cert-body">
-            <div class="cert-title">Excel 2019 Expert</div>
-            <div class="cert-issuer">Microsoft Office Specialist · Oct 2025</div>
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row">
+            <label><span>Name</span><input type="text" placeholder="Your name"/></label>
+            <label><span>Email</span><input type="email" placeholder="your@email.com"/></label>
           </div>
-          <div class="cert-badge cert-badge--gold">MOS</div>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-icon cert-icon--ms"><i class="fa-brands fa-linkedin"></i></div>
-          <div class="cert-body">
-            <div class="cert-title">Career Essentials in Data Analysis</div>
-            <div class="cert-issuer">Microsoft &amp; LinkedIn</div>
-          </div>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-icon cert-icon--ms"><i class="fa-brands fa-microsoft"></i></div>
-          <div class="cert-body">
-            <div class="cert-title">MTA: Introduction to Programming (HTML &amp; CSS)</div>
-            <div class="cert-issuer">Microsoft Technology Associate</div>
-          </div>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-icon cert-icon--ibm"><i class="fa-solid fa-atom"></i></div>
-          <div class="cert-body">
-            <div class="cert-title">Python 101 for Data Science</div>
-            <div class="cert-issuer">IBM Developer Skills Network · Cognitive Class</div>
-          </div>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-icon cert-icon--cisco"><i class="fa-solid fa-network-wired"></i></div>
-          <div class="cert-body">
-            <div class="cert-title">Python Essentials 1</div>
-            <div class="cert-issuer">Cisco Networking Academy</div>
-          </div>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-icon cert-icon--del"><i class="fa-solid fa-chart-simple"></i></div>
-          <div class="cert-body">
-            <div class="cert-title">Data Analytics Job Simulation</div>
-            <div class="cert-issuer">Deloitte</div>
-          </div>
-        </div>
-
+          <label><span>Subject</span><input type="text" placeholder="Opportunity / Collaboration / Just saying hi"/></label>
+          <label><span>Message</span><textarea rows="5" placeholder="Tell me about the role or project..."></textarea></label>
+          <button class="btn btn--primary" type="button" id="sendBtn">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+          <p class="form-note">Demo form — connect via LinkedIn or email for a guaranteed response.</p>
+        </form>
       </div>
     </div>
-  </section>
-
-  <!-- Contact / Footer -->
-  <footer id="contact" class="footer">
-    <div class="footer__top">
-      <div class="container">
-        <div class="footer__grid">
-          <div class="footer__left">
-            <div class="section__label" style="margin-bottom:14px">06 / contact</div>
-            <h2 class="footer__title">Let's Build<br><span class="accent-text">Something Together</span></h2>
-            <p class="footer__sub">
-              Open to entry-level Data Analyst, Python Analyst, and related roles. Let's talk about how I can contribute to your team.
-            </p>
-            <div class="footer__contacts">
-              <a class="flink" href="/cdn-cgi/l/email-protection#ea9c8f8f988f9982d8dbc49caa8d878b8386c4898587">
-                <i class="fa-solid fa-envelope"></i><span><span class="__cf_email__" data-cfemail="354350504750465d07041b43755258545c591b565a58">[email&#160;protected]</span></span>
-              </a>
-              <a class="flink" href="tel:+919030859468">
-                <i class="fa-solid fa-phone"></i><span>+91-9030859468</span>
-              </a>
-              <a class="flink" href="https://www.linkedin.com/in/veeresh-kambhalamatam" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-linkedin-in"></i><span>linkedin.com/in/veeresh-kambhalamatam</span>
-              </a>
-              <a class="flink" href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-github"></i><span>github.com/veeresh21v-max</span>
-              </a>
-            </div>
-          </div>
-
-          <form class="contact-form" onsubmit="return false;">
-            <div class="form-row">
-              <label><span>Name</span><input type="text" placeholder="Your name" /></label>
-              <label><span>Email</span><input type="email" placeholder="your@email.com" /></label>
-            </div>
-            <label><span>Subject</span><input type="text" placeholder="Opportunity / Collaboration / Just saying hi" /></label>
-            <label><span>Message</span><textarea rows="5" placeholder="Tell me about the role or project..."></textarea></label>
-            <button class="btn btn--primary" type="button" id="fakeSendBtn">
-              <i class="fa-solid fa-paper-plane"></i> Send Message
-            </button>
-            <p class="form-note">Demo form — connect via LinkedIn or email for guaranteed response.</p>
-          </form>
-        </div>
-      </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <span class="brand">VK<span class="brand-dot">.</span></span>
+      <span class="muted-sm">&#169; 2026 Veeresh Kambhalamatam &middot; Data-driven by nature</span>
+      <a class="muted-sm" href="#home">&#8593; Back to top</a>
     </div>
-    <div class="footer__bottom">
-      <div class="container footer__bottom-inner">
-        <span class="brand">VK<span class="brand-dot">.</span></span>
-        <
+  </div>
+</footer>
+
+<script>
+// ── EMAIL (obfuscation-proof — assembled by JS, never in HTML) ──
+(function(){
+  var u='veeresh21.v', d='gmail.com', e=u+'@'+d;
+  var els=['email-link','email-social','footer-email'];
+  els.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.href='mailto:'+e;
+  });
+  var t1=document.getElementById('email-text');
+  if(t1) t1.textContent=e;
+})();
+
+// ── CUSTOM CURSOR ──
+var cur=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){
+  cur.style.left=e.clientX+'px';
+  cur.style.top=e.clientY+'px';
+});
+document.addEventListener('mousedown',function(){cur.style.width='18px';cur.style.height='18px';cur.style.opacity='.7';});
+document.addEventListener('mouseup',function(){cur.style.width='10px';cur.style.height='10px';cur.style.opacity='1';});
+
+// ── NAVBAR SCROLL ──
+var nb=document.getElementById('navbar');
+window.addEventListener('scroll',function(){nb.classList.toggle('scrolled',window.scrollY>40);});
+
+// ── MOBILE MENU ──
+var tog=document.getElementById('navToggle');
+var lnk=document.getElementById('navLinks');
+tog.addEventListener('click',function(){lnk.classList.toggle('open');});
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click',function(){lnk.classList.remove('open');});
+});
+
+// ── TYPEWRITER (zero dependencies) ──
+(function(){
+  var strings=['Python Developer','Data Analyst','SQL Enthusiast','Power BI Builder','ML Practitioner'];
+  var el=document.getElementById('typed-text');
+  var si=0, ci=0, deleting=false, pauseTimer=null;
+  function tick(){
+    var full=strings[si];
+    if(deleting){
+      ci--;
+      el.textContent=full.substring(0,ci);
+      if(ci===0){
+        deleting=false;
+        si=(si+1)%strings.length;
+        pauseTimer=setTimeout(tick,400);
+        return;
+      }
+      pauseTimer=setTimeout(tick,28);
+    } else {
+      ci++;
+      el.textContent=full.substring(0,ci);
+      if(ci===full.length){
+        deleting=true;
+        pauseTimer=setTimeout(tick,1600);
+        return;
+      }
+      pauseTimer=setTimeout(tick,52);
+    }
+  }
+  setTimeout(tick,800);
+})();
+
+// ── SCROLL REVEAL ──
+var revEls=document.querySelectorAll('.project-card,.cert-card,.skill-group,.edu-card,.exp-card,.about__text,.about__edu');
+revEls.forEach(function(el){el.classList.add('reveal');});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  });
+},{threshold:0.08});
+revEls.forEach(function(el){obs.observe(el);});
+
+// ── SEND BUTTON ──
+document.getElementById('sendBtn').addEventListener('click',function(){
+  var b=this;
+  b.innerHTML='<i class="fa-solid fa-check"></i> Message Sent!';
+  b.style.background='#22c55e';
+  b.style.boxShadow='0 8px 30px rgba(34,197,94,.4)';
+  setTimeout(function(){
+    b.innerHTML='<i class="fa-solid fa-paper-plane"></i> Send Message';
+    b.style.background='';b.style.boxShadow='';
+  },3000);
+});
+</script>
+</body>
+</html>
