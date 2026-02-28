@@ -63,8 +63,8 @@
           </a>
         </div>
         <div class="hero__contacts">
-          <a class="contact-pill" href="mailto:veeresh21.v@gmail.com">
-            <i class="fa-solid fa-envelope"></i> veeresh21.v@gmail.com
+          <a class="contact-pill" href="/cdn-cgi/l/email-protection#a8decdcddacddbc09a9986dee8cfc5c9c1c486cbc7c5">
+            <i class="fa-solid fa-envelope"></i> <span class="__cf_email__" data-cfemail="285e4d4d5a4d5b401a19065e684f45494144064b4745">[email&#160;protected]</span>
           </a>
           <a class="contact-pill" href="tel:+919030859468">
             <i class="fa-solid fa-phone"></i> +91-9030859468
@@ -77,7 +77,7 @@
           <a href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer" class="social-icon" title="GitHub">
             <i class="fa-brands fa-github"></i>
           </a>
-          <a href="mailto:veeresh21.v@gmail.com" class="social-icon" title="Email">
+          <a href="/cdn-cgi/l/email-protection#f88e9d9d8a9d8b90cac9d68eb89f95999194d69b9795" class="social-icon" title="Email">
             <i class="fa-solid fa-envelope"></i>
           </a>
         </div>
@@ -95,7 +95,7 @@
           <div class="code-line indent"><span class="str">"degree"</span>: <span class="val">"MCA 2025"</span>,</div>
           <div class="code-line indent"><span class="str">"stack"</span>: [<span class="val">"Python"</span>, <span class="val">"SQL"</span>, <span class="val">"Power BI"</span>],</div>
           <div class="code-line indent"><span class="str">"certifications"</span>: <span class="num">6</span>,</div>
-          <div class="code-line indent"><span class="str">"projects"</span>: <span class="num">3</span>,</div>
+          <div class="code-line indent"><span class="str">"projects"</span>: <span class="num">3</span>,  <span class="cmt"># +enhanced</span></div>
           <div class="code-line indent"><span class="str">"internship"</span>: <span class="val">True</span>,</div>
           <div class="code-line indent"><span class="str">"status"</span>: <span class="val">"available"</span> <span class="cmt"># ✓</span></div>
           <div class="code-line">}</div>
@@ -291,29 +291,52 @@
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card project-card--featured">
           <div class="project-card__left">
             <div class="project-num">02</div>
             <div class="project-tags">
               <span class="ptag ptag--py">Python</span>
-              <span class="ptag">NLP</span>
-              <span class="ptag">Automation</span>
-              <span class="ptag">Google Speech API</span>
+              <span class="ptag ptag--ml">NLP</span>
+              <span class="ptag">TextBlob</span>
+              <span class="ptag">NLTK</span>
+              <span class="ptag">SQLite</span>
+              <span class="ptag">Matplotlib</span>
             </div>
-            <h3 class="project-title">Voice Based Email Service</h3>
+            <h3 class="project-title">Intelligent Voice Email System</h3>
             <p class="project-desc">
-              Engineered a Python voice-to-text email automation tool using Google Speech Recognition API and yagmail. Users compose and send emails entirely hands-free — a practical Python automation project demonstrating real-world NLP and scripting skills.
+              An AI-powered voice assistant that composes and sends emails using speech — no typing needed. Goes beyond basic voice-to-text: performs sentiment analysis on composed emails, auto-generates subject lines via noun phrase extraction, extracts keywords with NLTK, logs every email in a SQLite database, and visualizes analytics (sentiment distribution, word count, send status) through a Matplotlib dashboard.
             </p>
             <div class="project-highlights">
               <div class="ph"><i class="fa-solid fa-microphone"></i> Google Speech Recognition</div>
-              <div class="ph"><i class="fa-solid fa-robot"></i> Email Automation (yagmail)</div>
-              <div class="ph"><i class="fa-solid fa-bolt"></i> Hands-free UX</div>
+              <div class="ph"><i class="fa-solid fa-brain"></i> Sentiment Analysis (TextBlob)</div>
+              <div class="ph"><i class="fa-solid fa-key"></i> Keyword &amp; Subject Extraction</div>
+              <div class="ph"><i class="fa-solid fa-database"></i> SQLite Email History</div>
+              <div class="ph"><i class="fa-solid fa-chart-bar"></i> Analytics Dashboard</div>
             </div>
             <div class="project-actions">
-              <a class="btn btn--outline btn--sm" href="https://github.com/veeresh21v-max" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-github"></i> GitHub Profile
+              <a class="btn btn--primary btn--sm" href="https://github.com/veeresh21v-max/intelligent-voice-email-system" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-github"></i> View on GitHub
               </a>
               <a class="btn btn--outline btn--sm" href="#contact">Request Demo →</a>
+            </div>
+          </div>
+          <div class="project-card__right">
+            <div class="project-visual">
+              <div class="vis-window">
+                <div class="vis-bar"><span></span><span></span><span></span></div>
+                <div class="vis-code">
+                  <div><span class="kw">from</span> textblob <span class="kw">import</span> TextBlob</div>
+                  <div><span class="kw">import</span> sqlite3, yagmail</div>
+                  <div>&nbsp;</div>
+                  <div>blob = TextBlob(voice_text)</div>
+                  <div>sentiment = blob.sentiment.polarity</div>
+                  <div>subject = <span class="fn">extract_noun_phrase</span>(blob)</div>
+                  <div>&nbsp;</div>
+                  <div><span class="fn">log_to_db</span>(voice_text, sentiment)</div>
+                  <div><span class="fn">send_email</span>(subject, voice_text)</div>
+                  <div><span class="cmt"># Dashboard auto-updates ✓</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -452,8 +475,8 @@
               Open to entry-level Data Analyst, Python Analyst, and related roles. Let's talk about how I can contribute to your team.
             </p>
             <div class="footer__contacts">
-              <a class="flink" href="mailto:veeresh21.v@gmail.com">
-                <i class="fa-solid fa-envelope"></i><span>veeresh21.v@gmail.com</span>
+              <a class="flink" href="/cdn-cgi/l/email-protection#ea9c8f8f988f9982d8dbc49caa8d878b8386c4898587">
+                <i class="fa-solid fa-envelope"></i><span><span class="__cf_email__" data-cfemail="354350504750465d07041b43755258545c591b565a58">[email&#160;protected]</span></span>
               </a>
               <a class="flink" href="tel:+919030859468">
                 <i class="fa-solid fa-phone"></i><span>+91-9030859468</span>
@@ -485,13 +508,4 @@
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
         <span class="brand">VK<span class="brand-dot">.</span></span>
-        <span class="muted-sm">© 2026 Veeresh Kambhalamatam · Data-driven by nature</span>
-        <a class="muted-sm" href="#home">↑ Back to top</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+        <
